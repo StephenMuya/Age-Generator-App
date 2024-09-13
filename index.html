@@ -7,50 +7,36 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Age calculator app</title>
-
+  <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
-
-  Day
-  DD
-
-  Month
-  MM
-
-  Year
-  YYYY
-
-  -- years
-  -- months
-  -- days
-
-  <section clas="container">
-    <article class="data-container">
-      <aside class="input-one">
-        <label for="day">day</label>
-        <input type="number" id="day">
+<body class="container">
+  <section class="container-fluid">
+    <article class="data-container d-flex pt-4">
+      <aside class="input-one d-flex flex-column">
+        <label for="day" class="text-uppercase">day</label>
+        <input type="number" id="day" placeholder="DD">
       </aside>
 
-      <aside class="input-two">
-        <label for="month">month</label>
-        <input type="text" id="day">
+      <aside class="input-two d-flex flex-column mx-3">
+        <label for="month" class="text-uppercase">month</label>
+        <input type="number" id="month" placeholder="MM">
       </aside>
 
-      <aside class="input-three">
-        <label for="year">Year</label>
-        <input type="number" id="year">
+      <aside class="input-three d-flex flex-column mx-3">
+        <label for="year" class="text-uppercase">Year</label>
+        <input type="number" id="year" placeholder="YYYY">
       </aside>
+    </article>
 
-      <article class="horizontal-rule">
-        <hr>
+      <article class="horizontal-rule d-flex justify-content-center align-items-center">
+          <div class="horizontal"><hr></div>
         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
           <g fill="none" stroke="#FFF" stroke-width="2">
             <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/>
           </g>
         </svg>
       </article>
-    </article>
 
     <article class="actual-data">
       <p><span>--</span>Years</p>
@@ -58,10 +44,5 @@
       <p><span>--</span>Days</p>
     </article>
   </section>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>

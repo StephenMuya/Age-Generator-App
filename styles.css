@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.container{
+    background-color: hsl(0, 0%, 94%);
+}
+
+.container-fluid{
+    max-width: 400px;
+    margin-top: 200px;
+    height: 360px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.data-container aside > input{
+    width: 80px;
+    height: 40px;
+}
+
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+   margin: 0;
+} 
+
+.actual-data p {
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.actual-data span{
+    color: hsl(259, 100%, 65%);
+}
+
+.horizontal-rule svg{
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 50%;
+}
+
+.horizontal-rule svg:hover{
+    background-color: hsl(0, 0%, 8%);
+}
+
+.horizontal{
+    width:320px;
+    margin-right: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 450px) {
+
+}
