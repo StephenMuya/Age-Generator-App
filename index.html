@@ -13,19 +13,26 @@
 <body class="container">
   <section class="container-fluid">
     <article class="data-container d-flex pt-4">
-      <aside class="input-one d-flex flex-column">
+      <aside class="input-one d-flex flex-column error-three">
         <label for="day" class="text-uppercase">day</label>
         <input type="number" id="day" placeholder="DD">
+        <p class="error-one">This field is required</p>
+        <p class="error-two">must be a valid day</p>
+
       </aside>
 
       <aside class="input-two d-flex flex-column mx-3">
         <label for="month" class="text-uppercase">month</label>
         <input type="number" id="month" placeholder="MM">
+        <p class="error-one">This field is required</p>
+        <p class="error-two">must be a valid day</p>
       </aside>
 
       <aside class="input-three d-flex flex-column mx-3">
         <label for="year" class="text-uppercase">Year</label>
         <input type="number" id="year" placeholder="YYYY">
+        <p class="error-one">This field is required</p>
+        <p class="error-two">must be a valid day</p>
       </aside>
     </article>
 
