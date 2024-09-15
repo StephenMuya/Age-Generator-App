@@ -14,7 +14,7 @@
 .container-fluid{
     max-width: 400px;
     margin-top: 200px;
-    height: 450px;
+    height: auto;
     border-bottom-right-radius: 100px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -31,6 +31,7 @@
 .error-one,
 .error-two,
 .error-three{
+    display: none;
     color: red; 
     font-size: 8px;
 }
