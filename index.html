@@ -15,7 +15,7 @@
     <article class="data-container d-flex pt-4 flex-row">
       <aside class="input-one d-flex flex-column">
         <label for="day" class="text-uppercase">day</label>
-        <input type="number" id="day" placeholder="DD">
+        <input type="number" id="day" placeholder="DD" class="day">
         <p class="error-one">This field is required</p>
         <p class="error-two">must be a valid day</p>
 
@@ -23,14 +23,14 @@
 
       <aside class="input-two d-flex flex-column mx-3">
         <label for="month" class="text-uppercase">month</label>
-        <input type="number" id="month" placeholder="MM">
+        <input type="number" id="month" placeholder="MM" class="month">
         <p class="error-one">This field is required</p>
         <p class="error-two">must be a valid day</p>
       </aside>
 
       <aside class="input-three d-flex flex-column mx-3">
         <label for="year" class="text-uppercase">Year</label>
-        <input type="number" id="year" placeholder="YYYY">
+        <input type="number" id="year" placeholder="YYYY" class="year">
         <p class="error-one">This field is required</p>
         <p class="error-two">must be a valid day</p>
       </aside>
@@ -43,11 +43,13 @@
       <article class="horizontal-rule d-flex justify-content-center align-items-center">
         
           <div class="horizontal"><hr></div>
+      <button onclick="validateInputOne()">
         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
           <g fill="none" stroke="#FFF" stroke-width="2">
             <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/>
           </g>
         </svg>
+      </button>
       </article>
 
     <article class="actual-data">
