@@ -12,8 +12,8 @@
 </head>
 <body class="container">
   <section class="container-fluid">
-    <article class="data-container d-flex pt-4">
-      <aside class="input-one d-flex flex-column error-three">
+    <article class="data-container d-flex pt-4 flex-row">
+      <aside class="input-one d-flex flex-column">
         <label for="day" class="text-uppercase">day</label>
         <input type="number" id="day" placeholder="DD">
         <p class="error-one">This field is required</p>
@@ -34,6 +34,10 @@
         <p class="error-one">This field is required</p>
         <p class="error-two">must be a valid day</p>
       </aside>
+    </article>
+
+    <article class="error-three">
+      <p>Must be a valid date</p>
     </article>
 
       <article class="horizontal-rule d-flex justify-content-center align-items-center">

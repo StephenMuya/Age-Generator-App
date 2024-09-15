@@ -14,7 +14,7 @@
 .container-fluid{
     max-width: 400px;
     margin-top: 200px;
-    height: 360px;
+    height: 450px;
     border-bottom-right-radius: 100px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -22,14 +22,16 @@
     background-color: hsl(0, 0%, 100%);
 }
 
+
 .data-container aside > input{
     width: 80px;
     height: 40px;
 }
 
 .error-one,
-.error-two{
-    color: red;
+.error-two,
+.error-three{
+    color: red; 
     font-size: 8px;
 }
 
