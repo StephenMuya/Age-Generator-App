@@ -1,25 +1,60 @@
 const dateRegularExp = / ^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](\d{2})[-\/](\d{2}))$/;
+const dateRegularExpTwo = /^[1-7]$/
 
-const firstError = document.getElementsByClassName('error-one');
-const SecondError = document.getElementsByClassName('error-two');
+const secondError = document.getElementsByClassName('error-two');
 const thirdError = document.getElementsByClassName('error-three');
+const firstError = document.getElementsByClassName('error-one');
 
-const dayValue = document.getElementsByClassName('day')
-const monthValue = document.getElementsByClassName('month').value;
-const yearValue = document.getElementsByClassName('year').value;
+const dayValue = document.getElementsByClassName('day')[0];
+const monthValue = document.getElementsByClassName('month')[0];
+const yearValue = document.getElementsByClassName('year')[0];
 
-let isVaid = fasle;
+let isInputValid = true; 
 
-function validateInpuOne() {
+
+function showErrorOne() {
     
+    /* First error for the inputs */
     if(dayValue.value === "") {
-        firstError.style.display = "inline";
-        isVaid = true;
+        firstError[0].style.display = "inline";
+        isInputValid = false;
     } else{
-        firstError.style.display = "none";
+        firstError[0].style.display = "none";
+    }
+
+    if(monthValue.value === "") {
+        firstError[1].style.display = "inline";
+        isInputValid = false;
+    } else{
+        firstError[1].style.display = "none";
+    }
+
+    if(yearValue.value === "") {
+        firstError[2].style.display = "inline";
+        isInputValid = false;
+    } else{
+        firstError[2].style.display = "none";
     }
 }
 
-validateInpuOne()
+
+function showErrorTwo() {
+    if (!dateRegularExpTwo.test(dayValue.value)) {
+        secondError[0].style.display = "inline";
+        isInputValid = false;
+      } else {
+        secondError[0].style.display = "none";
+      }
+}
+
+function validateForm() {
+    showErrorOne();
+    showErrorTwo()
+}
+
+document.getElementById("button").addEventListener("click", showErrorOne, showErrorTwo);
+
+
+
 
 
