@@ -17,42 +17,51 @@ function showErrorOne() {
     /* First error for the inputs */
     if(dayValue.value === "") {
         firstError[0].style.display = "inline";
+        dayValue.style.borderColor = 'red';
         isInputValid = false;
-    } else{
+    } 
+    else{
         firstError[0].style.display = "none";
+        secondError[0].style.display = "none";
     }
+
+
 
     if(monthValue.value === "") {
         firstError[1].style.display = "inline";
+        monthValue.style.borderColor = 'red';
         isInputValid = false;
     } else{
+        monthValue.style.borderColor = 'black';
         firstError[1].style.display = "none";
     }
 
     if(yearValue.value === "") {
         firstError[2].style.display = "inline";
+        yearValue.style.borderColor = 'red';
         isInputValid = false;
     } else{
+        yearValue.style.borderColor = 'black';
         firstError[2].style.display = "none";
     }
 }
 
 
-function showErrorTwo() {
+/*function showErrorTwo() {
     if (!dateRegularExpTwo.test(dayValue.value)) {
         secondError[0].style.display = "inline";
         isInputValid = false;
       } else {
         secondError[0].style.display = "none";
       }
-}
+}*/
 
-function validateForm() {
+/*function validateForm() {
     showErrorOne();
     showErrorTwo()
-}
+}*/
 
-document.getElementById("button").addEventListener("click", showErrorOne, showErrorTwo);
+document.getElementById("button").addEventListener("click", showErrorOne);
 
 
 

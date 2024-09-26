@@ -25,7 +25,8 @@
 
 .data-container aside > input{
     width: 80px;
-    height: 40px;
+    height: 33px;
+    border-radius: 5px;
 }
 
 .error-one,
