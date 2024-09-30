@@ -1,6 +1,9 @@
-const generalDateRegularExp = / ^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](\d{2})[-\/](\d{2}))$/;
-const dateRegularExp = /^[1-31]$/;
-const monthRegularExp = /^(0[1-9]|1[0-2])$/;
+const generalDateRegularExp = /^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](\d{2})[-\/](\d{2}))$/;
+const dayRegularExp = /^(0[1-9]|[12][0-9]|3[01])$/;
+const monthRegularExp = /((?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Sept|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?))/;
+const yearRegularExp = /^\d{4}-\d{2}-\d{2}/;
+const dateRegularExpTwo = /(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}/;
+
 
 const secondError = document.getElementsByClassName('error-two');
 const thirdError = document.getElementsByClassName('error-three');
@@ -17,68 +20,76 @@ const yearText = document.getElementById('year-text');
 let isInputValid = true; 
 
 
-
-
-/*function showErrorOne() {
+ function errorIfEmpty() {
     
-    First error for the inputs 
-    if(dayValue.value === "") {
+    if (dayValue.value === "") {
         firstError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
-        dayText.style.color = 'red'
+        dayText.style.color = 'red';
         isInputValid = false;
-    } 
-    else{
+    } else {
         firstError[0].style.display = "none";
-        secondError[0].style.display = "none";
+        dayValue.style.borderColor = 'black';
+        dayText.style.color = 'black';
     }
 
-    if(monthValue.value === "") {
+    if (monthValue.value === "") {
         firstError[1].style.display = "inline";
         monthValue.style.borderColor = 'red';
-        monthText.style.color = 'red'
+        monthText.style.color = 'red';
         isInputValid = false;
-    } else{
-        monthValue.style.borderColor = 'black';
+    } else {
         firstError[1].style.display = "none";
+        monthValue.style.borderColor = 'black';
+        monthText.style.color = 'black';
     }
 
-    if(yearValue.value === "") {
+    if (yearValue.value === "") {
         firstError[2].style.display = "inline";
         yearValue.style.borderColor = 'red';
-        yearText.style.color = 'red'
+        yearText.style.color = 'red';
+        isInputValid = false;
+    } else {
+        firstError[2].style.display = "none";
+        yearValue.style.borderColor = 'black';
+        yearText.style.color = 'black';
+    }
+} 
+
+
+
+
+
+
+function errorIfInvalid (){
+    if(!dayRegularExp.test(dayValue.value)) {
+        secondError[0].style.display = "inline";
+        dayValue.style.borderColor = 'red';
+        dayText.style.color = 'red';
         isInputValid = false;
     } else{
-        yearValue.style.borderColor = 'black';
-        firstError[2].style.display = "none";
+        firstError[0].style.display = "none";
+        dayValue.style.borderColor = 'black';
+        dayText.style.color = 'black';
     }
-} */
 
-
-function showErrorTwo() {
-    /*if (!dateRegularExp.test(dayValue.value)) {
+    if(!monthRegularExp.test(monthValue.value)) {
         secondError[0].style.display = "inline";
+        monthValue.style.borderColor = 'red';
+        monthText.style.color = 'red';
         isInputValid = false;
-      } else {
+    } else{
         secondError[0].style.display = "none";
-      }*/
-
-      if (!monthRegularExp.test(monthValue.value)) {
-        secondError[0].style.display = "inline";
-        isInputValid = false;
-      } else {
-        secondError[0].style.display = "none";
-      }
+        monthValue.style.borderColor = 'black';
+        monthText.style.color = 'black';
+    }
 }
 
-function validateForm() {
-    /*showErrorOne();*/
-    showErrorTwo()
-}
-
-document.getElementById("button").addEventListener("click", showErrorTwo);
 
 
+/*document.getElementById("button").addEventListener("click", errorIfEmpty);*/
+
+document.getElementById('button').addEventListener('click', errorIfInvalid);
 
 
 
