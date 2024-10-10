@@ -20,7 +20,7 @@ const yearText = document.getElementById('year-text');
 let isInputValid = true; 
 
 
- function errorIfEmpty() {
+ /*function errorIfEmpty() {
     
     if (dayValue.value === "") {
         firstError[0].style.display = "inline";
@@ -54,11 +54,7 @@ let isInputValid = true;
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-} 
-
-
-
-
+} */
 
 
 function errorIfInvalid (){
@@ -74,14 +70,25 @@ function errorIfInvalid (){
     }
 
     if(!monthRegularExp.test(monthValue.value)) {
-        secondError[0].style.display = "inline";
+        secondError[1].style.display = "inline";
         monthValue.style.borderColor = 'red';
         monthText.style.color = 'red';
         isInputValid = false;
     } else{
-        secondError[0].style.display = "none";
+        secondError[1].style.display = "none";
         monthValue.style.borderColor = 'black';
         monthText.style.color = 'black';
+    }
+
+    if(!yearRegularExp.test(yearValue.value)) {
+        secondError[2].style.display = "inline";
+        yearValue.style.borderColor = 'red';
+        yearText.style.color = 'red';
+        isInputValid = false;
+    } else{
+        secondError[2].style.display = "none";
+        yearValue.style.borderColor = 'black';
+        yearText.style.color = 'black';
     }
 }
 
