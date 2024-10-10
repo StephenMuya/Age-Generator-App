@@ -1,23 +1,22 @@
-const generalDateRegularExp = /^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](\d{2})[-\/](\d{2}))$/;
 const dayRegularExp = /^(0[1-9]|[12][0-9]|3[01])$/;
-const monthRegularExp = /((?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Sept|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?))/;
-const yearRegularExp = /^\d{4}-\d{2}-\d{2}/;
-const dateRegularExpTwo = /(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}/;
-
-
-const secondError = document.getElementsByClassName('error-two');
-const thirdError = document.getElementsByClassName('error-three');
-const firstError = document.getElementsByClassName('error-one');
+const monthRegularExp = /^(0[1-9]|1[0-2])$/; // Assuming you're using numeric months
+const yearRegularExp = /^\d{4}$/;
+const generalDateRegularExp = /^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](\d{2})[-\/](\d{2}))$/;
 
 const dayValue = document.getElementsByClassName('day')[0];
 const monthValue = document.getElementsByClassName('month')[0];
 const yearValue = document.getElementsByClassName('year')[0];
+const fullDateValue = `${yearValue.value}-${monthValue.value}-${dayValue.value}`;
+
+const firstError = document.getElementsByClassName('error-one');
+const secondError = document.getElementsByClassName('error-two');
+const thirdError = document.getElementsByClassName('error-three'); // This is a collection of elements
 
 const dayText = document.getElementById('day-text');
 const monthText = document.getElementById('month-text');
 const yearText = document.getElementById('year-text');
 
-let isInputValid = true; 
+let isInputValid = true;
 
 
  /*function errorIfEmpty() {
@@ -57,7 +56,7 @@ let isInputValid = true;
 } */
 
 
-function errorIfInvalid (){
+/*function errorIfInvalid (){
     if(!dayRegularExp.test(dayValue.value)) {
         secondError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
@@ -90,13 +89,26 @@ function errorIfInvalid (){
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-}
+}*/
 
+
+function validateWholeDate() {
+    if (!generalDateRegularExp.test(fullDateValue)) {
+        thirdError[0].style.display = "inline";
+        dayValue.style.borderColor = 'red';
+        dayText.style.color = 'red';
+        
+    } else{
+        thirdError[0].style.display = "none";
+        dayValue.style.borderColor = 'black';
+        dayText.style.color = 'black';
+    }
+}
 
 
 /*document.getElementById("button").addEventListener("click", errorIfEmpty);*/
 
-document.getElementById('button').addEventListener('click', errorIfInvalid);
+document.getElementById('button').addEventListener('click', validateWholeDate);
 
 
 
