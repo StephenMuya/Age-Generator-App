@@ -1,6 +1,5 @@
 const dayRegularExp = /^(0[1-9]|[12][0-9]|3[01])$/;
-const monthRegularExp = /^(0[1-9]|1[0-2])$/; // Assuming you're using numeric months
-const yearRegularExp = /^\d{4}$/;
+const monthRegularExp = /^(0[1-9]|1[0-2])$/; 
 const generalDateRegularExp = /^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](\d{2})[-\/](\d{2}))$/;
 
 const dayValue = document.getElementsByClassName('day')[0];
@@ -10,7 +9,7 @@ const fullDateValue = `${yearValue.value}-${monthValue.value}-${dayValue.value}`
 
 const firstError = document.getElementsByClassName('error-one');
 const secondError = document.getElementsByClassName('error-two');
-const thirdError = document.getElementsByClassName('error-three'); // This is a collection of elements
+const thirdError = document.getElementsByClassName('error-three');
 
 const dayText = document.getElementById('day-text');
 const monthText = document.getElementById('month-text');
@@ -19,7 +18,7 @@ const yearText = document.getElementById('year-text');
 let isInputValid = true;
 
 
- /*function errorIfEmpty() {
+ function errorIfEmpty() {
     
     if (dayValue.value === "") {
         firstError[0].style.display = "inline";
@@ -53,7 +52,7 @@ let isInputValid = true;
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-} */
+} 
 
 
 /*function errorIfInvalid (){
@@ -92,7 +91,7 @@ let isInputValid = true;
 }*/
 
 
-function validateWholeDate() {
+/*function validateWholeDate() {
     if (!generalDateRegularExp.test(fullDateValue)) {
         thirdError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
@@ -103,12 +102,12 @@ function validateWholeDate() {
         dayValue.style.borderColor = 'black';
         dayText.style.color = 'black';
     }
-}
+}*/
 
 
-/*document.getElementById("button").addEventListener("click", errorIfEmpty);*/
+document.getElementById("button").addEventListener("click", errorIfEmpty);
 
-document.getElementById('button').addEventListener('click', validateWholeDate);
+/*document.getElementById('button').addEventListener('click', validateWholeDate);*/
 
 
 
