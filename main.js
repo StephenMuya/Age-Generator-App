@@ -1,5 +1,6 @@
-const dayRegularExp = /^(0[1-9]|[12][0-9]|3[01])$/;
-const monthRegularExp = /^(0[1-9]|1[0-2])$/; 
+const dayRegularExp = /^(0[1-9]|[12][0-9]|31)$/;
+const monthRegularExp = /^(0?[1-9]|1[0-2])$/; 
+const yearRegularExp = /^(19[0-9]{2}|20[0-1][0-9]|202[0-5])$/; //Users cannot enter future years.
 const generalDateRegularExp = /^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](\d{2})[-\/](\d{2}))$/;
 
 const dayValue = document.getElementsByClassName('day')[0];
@@ -18,7 +19,7 @@ const yearText = document.getElementById('year-text');
 let isInputValid = true;
 
 
- function errorIfEmpty() {
+ /*function errorIfEmpty() {
     
     if (dayValue.value === "") {
         firstError[0].style.display = "inline";
@@ -52,17 +53,17 @@ let isInputValid = true;
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-} 
+} */
 
 
-/*function errorIfInvalid (){
+function errorIfInvalid (){
     if(!dayRegularExp.test(dayValue.value)) {
         secondError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
         dayText.style.color = 'red';
         isInputValid = false;
     } else{
-        firstError[0].style.display = "none";
+        secondError[0].style.display = "none";
         dayValue.style.borderColor = 'black';
         dayText.style.color = 'black';
     }
@@ -88,7 +89,7 @@ let isInputValid = true;
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-}*/
+}
 
 
 /*function validateWholeDate() {
@@ -105,9 +106,9 @@ let isInputValid = true;
 }*/
 
 
-document.getElementById("button").addEventListener("click", errorIfEmpty);
+/*document.getElementById("button").addEventListener("click", errorIfEmpty);*/
 
 /*document.getElementById('button').addEventListener('click', validateWholeDate);*/
-
+document.getElementById("button").addEventListener("click", errorIfInvalid);
 
 
