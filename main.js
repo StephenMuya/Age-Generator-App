@@ -56,7 +56,7 @@ let isInputValid = true;
 } */
 
 
-function errorIfInvalid (){
+/*function errorIfInvalid (){
     if(!dayRegularExp.test(dayValue.value)) {
         secondError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
@@ -89,10 +89,11 @@ function errorIfInvalid (){
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-}
+}*/
 
 
-/*function validateWholeDate() {
+
+function validateWholeDate() {
     if (!generalDateRegularExp.test(fullDateValue)) {
         thirdError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
@@ -103,12 +104,12 @@ function errorIfInvalid (){
         dayValue.style.borderColor = 'black';
         dayText.style.color = 'black';
     }
-}*/
+}
 
 
 /*document.getElementById("button").addEventListener("click", errorIfEmpty);*/
 
-/*document.getElementById('button').addEventListener('click', validateWholeDate);*/
-document.getElementById("button").addEventListener("click", errorIfInvalid);
+document.getElementById('button').addEventListener('click', validateWholeDate);
+/*document.getElementById("button").addEventListener("click", errorIfInvalid);*/
 
 
