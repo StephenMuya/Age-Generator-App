@@ -18,8 +18,9 @@ const yearText = document.getElementById('year-text');
 
 let isInputValid = true;
 
+//Error if fields are empty. 
 
- /*function errorIfEmpty() {
+ function errorIfEmpty() {
     
     if (dayValue.value === "") {
         firstError[0].style.display = "inline";
@@ -53,10 +54,12 @@ let isInputValid = true;
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-} */
+}
 
 
-/*function errorIfInvalid (){
+//Error if fields are invalid. 
+
+function errorIfInvalid (){
     if(!dayRegularExp.test(dayValue.value)) {
         secondError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
@@ -89,9 +92,10 @@ let isInputValid = true;
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-}*/
+}
 
 
+//Whole date validation. 
 
 function validateWholeDate() {
     if (!generalDateRegularExp.test(fullDateValue)) {
@@ -107,9 +111,9 @@ function validateWholeDate() {
 }
 
 
-/*document.getElementById("button").addEventListener("click", errorIfEmpty);*/
+document.getElementById("button").addEventListener("click", errorIfEmpty);
 
 document.getElementById('button').addEventListener('click', validateWholeDate);
-/*document.getElementById("button").addEventListener("click", errorIfInvalid);*/
+document.getElementById("button").addEventListener("click", errorIfInvalid);
 
 
