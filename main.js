@@ -100,20 +100,15 @@ function errorIfInvalid (){
 function validateWholeDate() {
     if (!generalDateRegularExp.test(fullDateValue)) {
         thirdError[0].style.display = "inline";
-        dayValue.style.borderColor = 'red';
-        dayText.style.color = 'red';
-        
     } else{
         thirdError[0].style.display = "none";
-        dayValue.style.borderColor = 'black';
-        dayText.style.color = 'black';
     }
 }
 
 
-document.getElementById("button").addEventListener("click", errorIfEmpty);
+//document.getElementById("button").addEventListener("click", errorIfEmpty);
 
 document.getElementById('button').addEventListener('click', validateWholeDate);
-document.getElementById("button").addEventListener("click", errorIfInvalid);
+//document.getElementById("button").addEventListener("click", errorIfInvalid);
 
 
