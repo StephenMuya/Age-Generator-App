@@ -18,7 +18,7 @@ const yearText = document.getElementById('year-text');
 
 
 
-function validateAge() {
+/*function validateAge() {
     let isInputValid = true;
 
     if (dayValue.value === "") {
@@ -99,7 +99,7 @@ function validateAge() {
         thirdError[0].style.display = "none";
     }
 
-}
+}*/
 
 //Error if fields are empty. 
 
@@ -114,18 +114,30 @@ function validateAge() {
 //function validateWholeDate(){}
 
 
-document.getElementById("button").addEventListener("click", validateAge);
+document.getElementById("button").addEventListener("click", calculateDaysLogic);
 
 //document.getElementById('button').addEventListener('click', validateWholeDate);
 //document.getElementById("button").addEventListener("click", errorIfInvalid);
 
 
 function calculateDaysLogic() {
-    const currentDay = new Date().getDay;
-    const currentMonth = new Date().getMonth;
-    const currentYear = new Date().getFullYear;
+    const currentDay = new Date().getDate();
+    const currentMonth = new Date().getMonth();
+    const currentYear = new Date().getFullYear();
 
-    const ageInDays = currentDay - dayValue.value;
-    const ageInMonths = currentMonth - monthValue.value;
-    const ageInYears = currentYear - yearValue.value;
+    const dayOfBirth = parseInt(dayValue.value, 10);
+    const monthOfBirth = parseInt(monthValue.value, 10);
+    const yearOfBirth = parseInt(yearValue.value, 10);
+
+    const ageInDays = currentDay - dayOfBirth;
+    const ageInMonths = currentMonth - monthOfBirth;
+    const ageInYears = currentYear - yearOfBirth;
+
+    const displayYearsRemaining = document.getElementsByClassName("current-years")[0];
+    const displayMonthsRemaining = document.getElementsByClassName("current-months")[0];
+    const displayDaysRemaining = document.getElementsByClassName("current-days")[0];
+
+    displayYearsRemaining.innerHTML = ageInYears;
+    displayMonthsRemaining.innerHTML = ageInMonths;
+    displayDaysRemaining.innerHTML = ageInDays;
 }
