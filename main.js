@@ -6,7 +6,7 @@ const generalDateRegularExp = /^(?:(\d{2})[-\/](\d{2})[-\/](\d{2})|(\d{4})[-\/](
 const dayValue = document.getElementsByClassName('day')[0];
 const monthValue = document.getElementsByClassName('month')[0];
 const yearValue = document.getElementsByClassName('year')[0];
-const fullDateValue = `${yearValue.value}-${monthValue.value}-${dayValue.value}`;
+
 
 const firstError = document.getElementsByClassName('error-one');
 const secondError = document.getElementsByClassName('error-two');
@@ -16,12 +16,11 @@ const dayText = document.getElementById('day-text');
 const monthText = document.getElementById('month-text');
 const yearText = document.getElementById('year-text');
 
-let isInputValid = true;
 
-//Error if fields are empty. 
 
- function errorIfEmpty() {
-    
+function validateAge() {
+    let isInputValid = true;
+
     if (dayValue.value === "") {
         firstError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
@@ -54,12 +53,9 @@ let isInputValid = true;
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-}
 
+    if(!isInputValid) return;
 
-//Error if fields are invalid. 
-
-function errorIfInvalid (){
     if(!dayRegularExp.test(dayValue.value)) {
         secondError[0].style.display = "inline";
         dayValue.style.borderColor = 'red';
@@ -92,23 +88,38 @@ function errorIfInvalid (){
         yearValue.style.borderColor = 'black';
         yearText.style.color = 'black';
     }
-}
 
+    if(!isInputValid) return;
 
-//Whole date validation. 
+    const fullDateValue = `${yearValue.value}-${monthValue.value}-${dayValue.value}`;
 
-function validateWholeDate() {
     if (!generalDateRegularExp.test(fullDateValue)) {
         thirdError[0].style.display = "inline";
     } else{
         thirdError[0].style.display = "none";
     }
+
 }
 
+//Error if fields are empty. 
 
-//document.getElementById("button").addEventListener("click", errorIfEmpty);
+ //function errorIfEmpty(){}
 
-document.getElementById('button').addEventListener('click', validateWholeDate);
+
+//Error if fields are invalid. 
+
+//function errorIfInvalid (){}
+//Whole date validation. 
+
+//function validateWholeDate(){}
+
+
+document.getElementById("button").addEventListener("click", validateAge);
+
+//document.getElementById('button').addEventListener('click', validateWholeDate);
 //document.getElementById("button").addEventListener("click", errorIfInvalid);
 
 
+function calculateAgeLogic() {
+    
+}
