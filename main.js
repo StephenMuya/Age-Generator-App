@@ -120,6 +120,12 @@ document.getElementById("button").addEventListener("click", validateAge);
 //document.getElementById("button").addEventListener("click", errorIfInvalid);
 
 
-function calculateAgeLogic() {
-    
+function calculateDaysLogic() {
+    const currentDay = new Date().getDay;
+    const currentMonth = new Date().getMonth;
+    const currentYear = new Date().getFullYear;
+
+    const ageInDays = currentDay - dayValue.value;
+    const ageInMonths = currentMonth - monthValue.value;
+    const ageInYears = currentYear - yearValue.value;
 }
