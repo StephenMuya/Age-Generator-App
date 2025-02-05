@@ -1,3 +1,6 @@
+
+function validateAge() {
+    
 const dayRegularExp = /^(0[1-9]|[12][0-9]|31)$/;
 const monthRegularExp = /^(0?[1-9]|1[0-2])$/; 
 const yearRegularExp = /^(19[0-9]{2}|20[0-1][0-9]|202[0-5])$/; //Users cannot enter future years.
@@ -16,9 +19,6 @@ const dayText = document.getElementById('day-text');
 const monthText = document.getElementById('month-text');
 const yearText = document.getElementById('year-text');
 
-
-
-/*function validateAge() {
     let isInputValid = true;
 
     if (dayValue.value === "") {
@@ -99,7 +99,45 @@ const yearText = document.getElementById('year-text');
         thirdError[0].style.display = "none";
     }
 
-}*/
+
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1; 
+    const currentYear = currentDate.getFullYear();
+
+    const dayOfBirth = parseInt(dayValue.value);
+    const monthOfBirth = parseInt(monthValue.value);
+    const yearOfBirth = parseInt(yearValue.value);
+
+    
+    let ageInYears = currentYear - yearOfBirth;
+    let ageInMonths = currentMonth - monthOfBirth;
+    let ageInDays = currentDay - dayOfBirth;
+
+    if (ageInDays < 0) {
+        ageInMonths--;
+        const lastMonth = new Date(currentYear, currentMonth - 1, 0);
+        ageInDays += lastMonth.getDate(); 
+    }
+
+    if (ageInMonths < 0) {
+        ageInYears--;
+        ageInMonths += 12; 
+    }
+
+    const displayYearsRemaining = document.getElementsByClassName("current-years")[0];
+    const displayMonthsRemaining = document.getElementsByClassName("current-months")[0];
+    const displayDaysRemaining = document.getElementsByClassName("current-days")[0];
+
+    displayYearsRemaining.innerHTML = ageInYears;
+    displayMonthsRemaining.innerHTML = ageInMonths;
+    displayDaysRemaining.innerHTML = ageInDays;
+
+}
+
+document.getElementById("button").addEventListener("click", validateAge);
+
+
 
 //Error if fields are empty. 
 
@@ -114,26 +152,37 @@ const yearText = document.getElementById('year-text');
 //function validateWholeDate(){}
 
 
-document.getElementById("button").addEventListener("click", calculateDaysLogic);
+
 
 //document.getElementById('button').addEventListener('click', validateWholeDate);
 //document.getElementById("button").addEventListener("click", errorIfInvalid);
 
 
-function calculateDaysLogic() {
-    const currentDay = new Date().getDate();
-    const currentMonth = new Date().getMonth() + 1;
-    const currentYear = new Date().getFullYear();
+/*function calculateDaysLogic() {
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1; 
+    const currentYear = currentDate.getFullYear();
 
     const dayOfBirth = parseInt(dayValue.value);
     const monthOfBirth = parseInt(monthValue.value);
     const yearOfBirth = parseInt(yearValue.value);
 
-    const ageInDays = currentDay - dayOfBirth;
-    const ageInMonths = currentMonth - monthOfBirth;
-    const ageInYears = currentYear - yearOfBirth;
-
     
+    let ageInYears = currentYear - yearOfBirth;
+    let ageInMonths = currentMonth - monthOfBirth;
+    let ageInDays = currentDay - dayOfBirth;
+
+    if (ageInDays < 0) {
+        ageInMonths--;
+        const lastMonth = new Date(currentYear, currentMonth - 1, 0);
+        ageInDays += lastMonth.getDate(); 
+    }
+
+    if (ageInMonths < 0) {
+        ageInYears--;
+        ageInMonths += 12; 
+    }
 
     const displayYearsRemaining = document.getElementsByClassName("current-years")[0];
     const displayMonthsRemaining = document.getElementsByClassName("current-months")[0];
@@ -142,4 +191,4 @@ function calculateDaysLogic() {
     displayYearsRemaining.innerHTML = ageInYears;
     displayMonthsRemaining.innerHTML = ageInMonths;
     displayDaysRemaining.innerHTML = ageInDays;
-}
+}*/
