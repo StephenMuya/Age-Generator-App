@@ -122,16 +122,18 @@ document.getElementById("button").addEventListener("click", calculateDaysLogic);
 
 function calculateDaysLogic() {
     const currentDay = new Date().getDate();
-    const currentMonth = new Date().getMonth();
+    const currentMonth = new Date().getMonth() + 1;
     const currentYear = new Date().getFullYear();
 
-    const dayOfBirth = parseInt(dayValue.value, 10);
-    const monthOfBirth = parseInt(monthValue.value, 10);
-    const yearOfBirth = parseInt(yearValue.value, 10);
+    const dayOfBirth = parseInt(dayValue.value);
+    const monthOfBirth = parseInt(monthValue.value);
+    const yearOfBirth = parseInt(yearValue.value);
 
     const ageInDays = currentDay - dayOfBirth;
     const ageInMonths = currentMonth - monthOfBirth;
     const ageInYears = currentYear - yearOfBirth;
+
+    
 
     const displayYearsRemaining = document.getElementsByClassName("current-years")[0];
     const displayMonthsRemaining = document.getElementsByClassName("current-months")[0];
